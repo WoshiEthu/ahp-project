@@ -1,0 +1,259 @@
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+
+/**
+ *
+ * @author WOWDROID
+ */ 
+    public class kriteria {
+    private double k1, k2, k3, a, b, c, d, e, f, g, h, i;
+    private double a1, a2, a3, b1, b2, b3, c1, c2, c3;
+    private double ei1, ei2, ei3;
+    
+    protected void hitungEigenvector(){
+        DecimalFormat df = new DecimalFormat("##.####");
+        k1 = Double.parseDouble(JOptionPane.showInputDialog("Masukkan kepentingan K1 "));
+        setK1(k1);
+        System.out.println("K1 = " +getK1());
+        k2 = Double.parseDouble(JOptionPane.showInputDialog("Masukkan kepentingan K2 "));
+        setK2(k2);
+        System.out.println("K2 = " +getK2());
+        k3 = Double.parseDouble(JOptionPane.showInputDialog("Masukkan kepentingan K3 "));
+        setK2(k3);
+        System.out.println("K3 = " +getK3());
+        
+        penampung1(getK1(), getK2(), getK3());
+        
+        System.out.println("c = " +df.format(getC()));
+        penampung2(getA(), getB(), getC(), getD(), getE(), getF(), getG(), getH(), getI());
+        
+        eigenvectorKategori(getA1(), getA2(), getA3(), getB1(), getB2(), getB3(), getC1(), getC2(), getC3());
+        
+        System.out.println("Nilai Eigenvector Kategori 1 = " +df.format(getEi1()));
+        System.out.println("Nilai Eigenvector Kategori 2 = " +df.format(getEi2()));
+        System.out.println("Nilai Eigenvector Kategori 3 = " +df.format(getEi3()));
+            
+    }
+    
+    protected void setK1 (double k1){
+        this.k1 = k1;
+    }
+    
+    protected void setK2 (double k2){
+        this.k2 = k2;
+    }
+    
+    protected void setK3 (double k3){
+        this.k3 = k3;
+    }
+    
+    protected double getK1() {
+        return k1;
+    }
+    
+    protected double getK2() {
+        return k2;
+    }
+    
+    protected double getK3() {
+        return k3;
+    }
+
+    protected double getA() {
+        return a;
+    }
+
+    protected void setA(double a) {
+        this.a = a;
+    }
+
+    protected double getB() {
+        return b;
+    }
+
+    protected void setB(double b) {
+        this.b = b;
+    }
+
+    protected double getC() {
+        return c;
+    }
+
+    protected void setC(double c) {
+        this.c = c;
+    }
+
+    protected double getD() {
+        return d;
+    }
+
+    protected void setD(double d) {
+        this.d = d;
+    }
+
+    protected double getE() {
+        return e;
+    }
+
+    protected void setE(double e) {
+        this.e = e;
+    }
+
+    protected double getF() {
+        return f;
+    }
+
+    protected void setF(double f) {
+        this.f = f;
+    }
+
+    protected double getG() {
+        return g;
+    }
+
+    protected void setG(double g) {
+        this.g = g;
+    }
+
+    protected double getH() {
+        return h;
+    }
+
+    protected void setH(double h) {
+        this.h = h;
+    }
+
+    protected double getI() {
+        return i;
+    }
+
+    protected void setI(double i) {
+        this.i = i;
+    }
+
+    protected double getA1() {
+        return a1;
+    }
+
+    protected void setA1(double a1) {
+        this.a1 = a1;
+    }
+
+    protected double getA2() {
+        return a2;
+    }
+
+    protected void setA2(double a2) {
+        this.a2 = a2;
+    }
+
+    protected double getA3() {
+        return a3;
+    }
+
+    protected void setA3(double a3) {
+        this.a3 = a3;
+    }
+
+    protected double getB1() {
+        return b1;
+    }
+
+    protected void setB1(double b1) {
+        this.b1 = b1;
+    }
+
+    protected double getB2() {
+        return b2;
+    }
+
+    protected void setB2(double b2) {
+        this.b2 = b2;
+    }
+
+    protected double getB3() {
+        return b3;
+    }
+
+    protected void setB3(double b3) {
+        this.b3 = b3;
+    }
+
+    protected double getC1() {
+        return c1;
+    }
+
+    protected void setC1(double c1) {
+        this.c1 = c1;
+    }
+
+    protected double getC2() {
+        return c2;
+    }
+
+    protected void setC2(double c2) {
+        this.c2 = c2;
+    }
+
+    protected double getC3() {
+        return c3;
+    }
+
+    protected void setC3(double c3) {
+        this.c3 = c3;
+    }
+
+    protected double getEi1() {
+        return ei1;
+    }
+
+    protected void setEi1(double ei1) {
+        this.ei1 = ei1;
+    }
+
+    protected double getEi2() {
+        return ei2;
+    }
+
+    protected void setEi2(double ei2) {
+        this.ei2 = ei2;
+    }
+
+    protected double getEi3() {
+        return ei3;
+    }
+
+    protected void setEi3(double ei3) {
+        this.ei3 = ei3;
+    }
+    
+    
+    
+    protected void penampung1(double k1, double k2, double k3){
+        a = k1/k1;  b = k1/k2;   c = k1/k3;
+        
+        d = k2/k1;  e = k2/k2;    f = k2/k3;
+        
+        g = k3/k1;   h = k3/k2;  i = k3/k3; 
+    }
+    
+    protected void penampung2(double a, double b, double c, double d, double e, double f, double g, double h, double i){
+        a1 = (a*a)+(b*d)+(c*g);
+        a2 = (a*b)+(b*e)+(c*h);
+        a3 = (a*c)+(b*f)+(c*i);
+        
+        b1 = (d*a)+(e*d)+(f*g);
+        b2 = (d*b)+(e*e)+(f*h);
+        b3 = (d*c)+(e*f)+(f*i);
+         
+        c1 = (g*a)+(h*d)+(i*g);
+        c2 = (g*b)+(h*e)+(i*h);
+        c3 = (g*c)+(h*f)+(i*i);
+    }
+    
+    protected void eigenvectorKategori(double a1, double a2, double a3, double b1, double b2, double b3, double c1, double c2, double c3){
+        ei1 = (a1 + a2 + a3)/(a1+a2+a3+b1+b2+b3+c1+c2+c3);
+        ei2 = (b1 + b2 + b3)/(a1+a2+a3+b1+b2+b3+c1+c2+c3);
+        ei3 = (c1 + c2 + c3)/(a1+a2+a3+b1+b2+b3+c1+c2+c3);
+    }
+}
